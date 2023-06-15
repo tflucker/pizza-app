@@ -16,6 +16,13 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
 
+/**
+ * Model object representing a customer's order. Contains references to the
+ * CUSTOMER and a list of PIZZA they have ordered.
+ * 
+ * @author Tim Flucker
+ *
+ */
 @Entity
 @Data
 @Builder(toBuilder = true)

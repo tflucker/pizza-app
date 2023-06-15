@@ -15,6 +15,13 @@ import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Model for customer information. Each column contains validation annotations
+ * to ensure that data is correct.
+ * 
+ * @author Tim Flucker
+ *
+ */
 @Entity
 @Data
 @NoArgsConstructor
