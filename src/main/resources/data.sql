@@ -20,7 +20,7 @@ INSERT INTO TOPPINGS (NAME, DESCRIPTION) VALUES ('Mushrooms', 'Thinly sliced whi
 
 
 -- data for PIZZA_TOPPINGS table
-/* INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Cheese Pizza'), (select toppings_id from TOPPINGS where name='Cheese'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Cheese Pizza'), (select toppings_id from TOPPINGS where name='Cheese'));
 INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Cheese Pizza'), (select toppings_id from TOPPINGS where name='Tomato Sauce'));
 
 INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Pepperoni Pizza'), (select toppings_id from TOPPINGS where name='Cheese'));
@@ -32,7 +32,7 @@ INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id fro
 INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza'), (select toppings_id from TOPPINGS where name='Onions'));
 INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza'), (select toppings_id from TOPPINGS where name='Green Peppers'));
 INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza'), (select toppings_id from TOPPINGS where name='Mushrooms'));
- */
+
 -- data for PIZZA_ORDER table
 INSERT INTO PIZZA_ORDER (CUSTOMER_ID, PIZZA_ID, ORDER_DATE) VALUES ( (select CUSTOMER_ID from CUSTOMER where name='John Doe'), (select pizza_id from PIZZA where name='Cheese Pizza'), '2023-04-12');
 INSERT INTO PIZZA_ORDER (CUSTOMER_ID, PIZZA_ID, ORDER_DATE) VALUES ( (select CUSTOMER_ID from CUSTOMER where name='Jane Doe'), (select pizza_id from PIZZA where name='Veggie Pizza'), '2023-04-12');
