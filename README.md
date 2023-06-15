@@ -20,3 +20,8 @@ This project is meant to be a simple REST API microservice project which allows 
  - viewMenu (GET): returns a list of available PizzaOrder objects
  - orderPizza (POST): submit a pizza order 
  - trackOrder/{orderId} (GET): returns OrderStatus object related to the Pizza
+ 
+ 
+## Database 
+
+The data for this project is located in the `src/main/resources` folder under the `schema.sql` and `data.sql`.  This files are run on project start and are used to create an in-memory H2 database. This database is accessible locally at http://localhost:8080/h2-console with the username and password of `sa` and `password` respectively. 
