@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "db4a2d67-57ec-4d59-b46d-afb78bf71f22",
+		"name": "Pizza App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6395563"
+	},
+	"item": [
+		{
+			"name": "View Menu",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pizza-app/viewMenu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pizza-app",
+						"viewMenu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerID\": 1,\r\n    \"pizzas\": [\r\n        {\r\n            \"size\": \"SMALL\",\r\n            \"pizzaName\": \"Cheese Pizza\"\r\n        },\r\n        {\r\n            \"size\": \"MEDIUM\",\r\n            \"pizzaName\": \"Pepperoni Pizza\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pizza-app/orderPizza",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pizza-app",
+						"orderPizza"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer (ID)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pizza-app/customer/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pizza-app",
+						"customer",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer (Name)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pizza-app/customer?customerName=John Doe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pizza-app",
+						"customer"
+					],
+					"query": [
+						{
+							"key": "customerName",
+							"value": "John Doe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pizza-app/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pizza-app",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Tim F\",\r\n    \"phone\": \"123-123-1111\",\r\n    \"email\": \"timf@email.com\",\r\n    \"receivePromotions\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pizza-app/customer/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pizza-app",
+						"customer",
+						"new"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
