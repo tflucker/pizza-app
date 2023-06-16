@@ -1,5 +1,7 @@
 package com.timflucker.pizza.app.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.timflucker.pizza.app.model.Pizza;
@@ -11,5 +13,7 @@ import com.timflucker.pizza.app.model.Pizza;
  *
  */
 public interface PizzaRepository extends JpaRepository<Pizza, Long>{
+
+	Optional<Pizza> findByNameAndPizzaSize(String name, String pizzaSize);
 
 }

@@ -18,6 +18,9 @@ public class DataNotFoundException extends PizzaAppException {
 	 */
 	public DataNotFoundException(long providedId) {
 		super("No data found for the provided ID: " + providedId);
-
+	}
+	
+	public DataNotFoundException(String message) {
+		super(message);
 	}
 }
