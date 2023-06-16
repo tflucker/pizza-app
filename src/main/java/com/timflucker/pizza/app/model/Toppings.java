@@ -31,7 +31,7 @@ public class Toppings implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "TOPPINGS_ID")
 	@JsonIgnore
 	private Long toppingsID;
@@ -47,7 +47,7 @@ public class Toppings implements Serializable {
 //	@ManyToOne
 //	@JoinColumn(name = "pizza_id", nullable = false)
 	@JsonBackReference
-	@ManyToMany(mappedBy = "toppings")
+	@ManyToMany(mappedBy = "pizzaToppings")
 //	@JoinTable(name = "PIZZA_TOPPINGS")
 	private List<Pizza> pizzas;
 }

@@ -17,11 +17,24 @@ public interface CustomerService {
 	 */
 	public List<Customer> retrieveAllCustomers();
 	
-	public Customer retrieveCustomer(long customerId);
+	/**
+	 * Retrieve the customer with the matching ID value.
+	 * @param customerId
+	 * @return
+	 */
+	public Customer retrieveCustomerID(long customerId);
 	
+	/**
+	 * Retrieve the customer with the matching name value
+	 * @param customerName
+	 * @return
+	 */
+	public Customer retrieveCustomerByName(String customerName);
+
 	public Customer addCustomer(String name, String phoneNumber, String email, boolean receivePromotions);
 	
 	public Customer updateCustomerInformation(long customerId, Customer newCustomerInfo);
 	
 	public void deleteCustomer(long customerId);
+
 }

@@ -16,7 +16,10 @@ This project is meant to be a simple REST API microservice project which allows 
 
 
 ## API Functionality 
-
+ - customers/{customerId} (GET): returns the customer information based on provided ID
+ - customers/{customerName} (GET): returns the customer information based on provided name
+ - customers/new (POST): creates a new customer with the provided information
+ 
  - viewMenu (GET): returns a list of available PizzaOrder objects
  - orderPizza (POST): submit a pizza order 
  - trackOrder/{orderId} (GET): returns OrderStatus object related to the Pizza
