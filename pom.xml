@@ -114,7 +114,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.timflucekr.pizza.app.Application</mainClass>
+							<mainClass>com.timflucker.pizza.app.Application</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
