@@ -5,9 +5,15 @@ INSERT INTO CUSTOMER (NAME, PHONE, EMAIL, RECEIVE_PROMOTIONS) VALUES ('Jane Doe'
 INSERT INTO CUSTOMER (NAME, PHONE, EMAIL, RECEIVE_PROMOTIONS) VALUES ('Tim Flucker', '555-555-5555', 'tflucker@email.com', TRUE);
 	
 -- data for PIZZA table
-INSERT INTO PIZZA (NAME, DESCRIPTION, COST, IS_VEGETARIAN) VALUES ('Cheese Pizza', 'Classic Cheese Pizza with red sauce.', 10.00, FALSE);
-INSERT INTO PIZZA (NAME, DESCRIPTION, COST, IS_VEGETARIAN) VALUES ('Pepperoni Pizza', 'A cheese pizza with pepperoni.', 12.00, FALSE);
-INSERT INTO PIZZA (NAME, DESCRIPTION, COST, IS_VEGETARIAN) VALUES ('Veggie Pizza', 'A cheese pizza topped with veggies.', 12.12, FALSE);
+INSERT INTO PIZZA (NAME, DESCRIPTION, PIZZA_SIZE, COST, IS_VEGETARIAN) VALUES ('Cheese Pizza', 'Classic Cheese Pizza with red sauce.', 'SMALL', 10.00, FALSE);
+INSERT INTO PIZZA (NAME, DESCRIPTION, PIZZA_SIZE, COST, IS_VEGETARIAN) VALUES ('Cheese Pizza', 'Classic Cheese Pizza with red sauce.', 'MEDIUM', 11.50, FALSE);
+INSERT INTO PIZZA (NAME, DESCRIPTION, PIZZA_SIZE, COST, IS_VEGETARIAN) VALUES ('Cheese Pizza', 'Classic Cheese Pizza with red sauce.', 'LARGE', 13.00, FALSE);
+INSERT INTO PIZZA (NAME, DESCRIPTION, PIZZA_SIZE, COST, IS_VEGETARIAN) VALUES ('Pepperoni Pizza', 'A cheese pizza with pepperoni.', 'SMALL', 12.00, FALSE);
+INSERT INTO PIZZA (NAME, DESCRIPTION, PIZZA_SIZE, COST, IS_VEGETARIAN) VALUES ('Pepperoni Pizza', 'A cheese pizza with pepperoni.', 'MEDIUM', 14.00, FALSE);
+INSERT INTO PIZZA (NAME, DESCRIPTION, PIZZA_SIZE, COST, IS_VEGETARIAN) VALUES ('Pepperoni Pizza', 'A cheese pizza with pepperoni.', 'LARGE', 16.00, FALSE);
+INSERT INTO PIZZA (NAME, DESCRIPTION, PIZZA_SIZE, COST, IS_VEGETARIAN) VALUES ('Veggie Pizza', 'A cheese pizza topped with veggies.', 'SMALL', 12.50, TRUE);
+INSERT INTO PIZZA (NAME, DESCRIPTION, PIZZA_SIZE, COST, IS_VEGETARIAN) VALUES ('Veggie Pizza', 'A cheese pizza topped with veggies.', 'MEDIUM', 15.00, TRUE);
+INSERT INTO PIZZA (NAME, DESCRIPTION, PIZZA_SIZE, COST, IS_VEGETARIAN) VALUES ('Veggie Pizza', 'A cheese pizza topped with veggies.', 'LARGE', 17.50, TRUE);
 
 -- data for TOPPINGS table
 INSERT INTO TOPPINGS (NAME, DESCRIPTION) VALUES ('Cheese', 'House blend of cheese.');
@@ -20,20 +26,40 @@ INSERT INTO TOPPINGS (NAME, DESCRIPTION) VALUES ('Mushrooms', 'Thinly sliced whi
 
 
 -- data for PIZZA_TOPPINGS table
-INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Cheese Pizza'), (select toppings_id from TOPPINGS where name='Cheese'));
-INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Cheese Pizza'), (select toppings_id from TOPPINGS where name='Tomato Sauce'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Cheese Pizza' and pizza_size='SMALL'), (select toppings_id from TOPPINGS where name='Cheese'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Cheese Pizza' and pizza_size='SMALL'), (select toppings_id from TOPPINGS where name='Tomato Sauce'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Cheese Pizza' and pizza_size='MEDIUM'), (select toppings_id from TOPPINGS where name='Cheese'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Cheese Pizza' and pizza_size='MEDIUM'), (select toppings_id from TOPPINGS where name='Tomato Sauce'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Cheese Pizza' and pizza_size='LARGE'), (select toppings_id from TOPPINGS where name='Cheese'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Cheese Pizza' and pizza_size='LARGE'), (select toppings_id from TOPPINGS where name='Tomato Sauce'));
 
-INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Pepperoni Pizza'), (select toppings_id from TOPPINGS where name='Cheese'));
-INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Pepperoni Pizza'), (select toppings_id from TOPPINGS where name='Tomato Sauce'));
-INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Pepperoni Pizza'), (select toppings_id from TOPPINGS where name='Pepperoni'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Pepperoni Pizza' and pizza_size='SMALL'), (select toppings_id from TOPPINGS where name='Cheese'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Pepperoni Pizza' and pizza_size='SMALL'), (select toppings_id from TOPPINGS where name='Tomato Sauce'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Pepperoni Pizza' and pizza_size='SMALL'), (select toppings_id from TOPPINGS where name='Pepperoni'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Pepperoni Pizza' and pizza_size='MEDIUM'), (select toppings_id from TOPPINGS where name='Cheese'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Pepperoni Pizza' and pizza_size='MEDIUM'), (select toppings_id from TOPPINGS where name='Tomato Sauce'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Pepperoni Pizza' and pizza_size='MEDIUM'), (select toppings_id from TOPPINGS where name='Pepperoni'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Pepperoni Pizza' and pizza_size='LARGE'), (select toppings_id from TOPPINGS where name='Cheese'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Pepperoni Pizza' and pizza_size='LARGE'), (select toppings_id from TOPPINGS where name='Tomato Sauce'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Pepperoni Pizza' and pizza_size='LARGE'), (select toppings_id from TOPPINGS where name='Pepperoni'));
 
-INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza'), (select toppings_id from TOPPINGS where name='Cheese'));
-INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza'), (select toppings_id from TOPPINGS where name='Tomato Sauce'));
-INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza'), (select toppings_id from TOPPINGS where name='Onions'));
-INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza'), (select toppings_id from TOPPINGS where name='Green Peppers'));
-INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza'), (select toppings_id from TOPPINGS where name='Mushrooms'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='SMALL'), (select toppings_id from TOPPINGS where name='Cheese'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='SMALL'), (select toppings_id from TOPPINGS where name='Tomato Sauce'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='SMALL'), (select toppings_id from TOPPINGS where name='Onions'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='SMALL'), (select toppings_id from TOPPINGS where name='Green Peppers'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='SMALL'), (select toppings_id from TOPPINGS where name='Mushrooms'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='MEDIUM'), (select toppings_id from TOPPINGS where name='Cheese'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='MEDIUM'), (select toppings_id from TOPPINGS where name='Tomato Sauce'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='MEDIUM'), (select toppings_id from TOPPINGS where name='Onions'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='MEDIUM'), (select toppings_id from TOPPINGS where name='Green Peppers'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='MEDIUM'), (select toppings_id from TOPPINGS where name='Mushrooms'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='LARGE'), (select toppings_id from TOPPINGS where name='Cheese'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='LARGE'), (select toppings_id from TOPPINGS where name='Tomato Sauce'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='LARGE'), (select toppings_id from TOPPINGS where name='Onions'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='LARGE'), (select toppings_id from TOPPINGS where name='Green Peppers'));
+INSERT INTO PIZZA_TOPPINGS (PIZZA_ID, TOPPINGS_ID) VALUES ( (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='LARGE'), (select toppings_id from TOPPINGS where name='Mushrooms'));
 
 -- data for PIZZA_ORDER table
-INSERT INTO PIZZA_ORDER (CUSTOMER_ID, PIZZA_ID, ORDER_DATE) VALUES ( (select CUSTOMER_ID from CUSTOMER where name='John Doe'), (select pizza_id from PIZZA where name='Cheese Pizza'), '2023-04-12');
-INSERT INTO PIZZA_ORDER (CUSTOMER_ID, PIZZA_ID, ORDER_DATE) VALUES ( (select CUSTOMER_ID from CUSTOMER where name='Jane Doe'), (select pizza_id from PIZZA where name='Veggie Pizza'), '2023-04-12');
-INSERT INTO PIZZA_ORDER (CUSTOMER_ID, PIZZA_ID, ORDER_DATE) VALUES ( (select CUSTOMER_ID from CUSTOMER where name='Tim Flucker'), (select pizza_id from PIZZA where name='Pepperoni Pizza'), '2023-04-12');
+INSERT INTO PIZZA_ORDER (CUSTOMER_ID, ORDER_ID, PIZZA_ID, ORDER_DATE, TOTAL_COST) VALUES ( (select CUSTOMER_ID from CUSTOMER where name='John Doe'), 'abc123', (select pizza_id from PIZZA where name='Cheese Pizza' and pizza_size='SMALL'), '2023-04-12', 10.00);
+INSERT INTO PIZZA_ORDER (CUSTOMER_ID, ORDER_ID, PIZZA_ID, ORDER_DATE, TOTAL_COST) VALUES ( (select CUSTOMER_ID from CUSTOMER where name='Jane Doe'), 'def456', (select pizza_id from PIZZA where name='Veggie Pizza' and pizza_size='SMALL'), '2023-04-12', 12.00);
+INSERT INTO PIZZA_ORDER (CUSTOMER_ID, ORDER_ID, PIZZA_ID, ORDER_DATE, TOTAL_COST) VALUES ( (select CUSTOMER_ID from CUSTOMER where name='Tim Flucker'), 'ghi789', (select pizza_id from PIZZA where name='Pepperoni Pizza' and pizza_size='SMALL'), '2023-04-12', 12.50);
